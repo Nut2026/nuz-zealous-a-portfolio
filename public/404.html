@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuz Zealous | Full-Stack Developer</title>
+    <script>
+      // SPA fallback for Cloudflare Pages: rewrite unknown paths to the app shell.
+      // Use replaceState so the browser URL stays clean and client-side routing works.
+      // Preserve the path for any future client routes; for now the app is all anchor-based.
+      const path = location.pathname.replace(/\/$/, '') || '/';
+      if (path !== '/') {
+        history.replaceState(null, '', '/');
+      }
+      // Small delay ensures Cloudflare Pages has finished serving this 404.html
+      // before the app shell loads as index.html.
+      window.addEventListener('load', () => {
+        location.replace('/');
+      });
+      // Fallback if load already fired.
+      if (document.readyState === 'complete') {
+        location.replace('/');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

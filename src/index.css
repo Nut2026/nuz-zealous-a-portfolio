@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ring: #0369a1;
+  }
+
+  .dark {
+    --ring: #ffffff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-light text-dark transition-colors duration-300;
+  }
+
+  body.dark {
+    @apply bg-dark text-light;
+  }
+
+  ::selection {
+    background-color: #5dc8ff40;
+  }
+}
+
+@layer components {
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #5dc8ff;
+    border-radius: 9999px;
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #5dc8ff transparent;
+  }
+
+  .starred-gold-border {
+    border-color: #f59e0b;
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .starred-gold-border:hover {
+    border-color: #fbbf24;
+    box-shadow: 0 0 18px rgba(245, 158, 11, 0.5);
+  }
+
+  .dark .starred-gold-border {
+    border-color: #fbbf24;
+    box-shadow: 0 0 16px rgba(251, 191, 36, 0.4);
+  }
+
+  .dark .starred-gold-border:hover {
+    border-color: #fef08a;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.55);
+  }
+
+  @keyframes marching-ants {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -32;
+    }
+  }
+
+  .animate-marching-dashes {
+    stroke-dasharray: 8 8;
+    animation: marching-ants 1.2s linear infinite;
+  }
+
+  @keyframes arrow-continuous-right {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(8px);
+    }
+  }
+
+  @keyframes arrow-continuous-left {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-8px);
+    }
+  }
+
+  .group\/btn:hover .arrow-moving-right {
+    animation: arrow-continuous-right 0.75s ease-in-out infinite;
+  }
+
+  .group\/btn:hover .arrow-moving-left {
+    animation: arrow-continuous-left 0.75s ease-in-out infinite;
+  }
+}

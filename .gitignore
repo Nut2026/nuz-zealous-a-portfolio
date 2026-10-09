@@ -1,0 +1,60 @@
+# Environment and secret files (API keys, tokens, Cloudflare/Wrangler secrets, etc.)
+.env
+.env.*
+.env*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+credentials*
+secret*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# If you use Wrangler secrets or Cloudflare bindings, keep any local secret files out of git.
+# Do NOT add real secret values to this repo. Use your host's secret store (e.g. Cloudflare
+# Workers/Pages secrets, .env only on your machine, etc.).
+
+# Catch-all for any file whose name contains 'secret' (e.g. secrets.json, .secrets.json,
+# *secret*.json). Kept explicit so nothing secret-ish slips through by filename.
+*secret*
+.*secret*
+
+# Dependencies
+node_modules/
+
+# Editor / IDE
+.vscode/
+.idea/
+.freebuff/
+*.swp
+*.swo
+*~
+*.sublime-*
+
+# OS junk
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs, temp, cache
+tmp/
+temp/
+*.log
+*.tmp
+.cache/
+.tmp/
+node_modules/
+node_modules/.cache/
+node_modules/.tmp/
+dist/

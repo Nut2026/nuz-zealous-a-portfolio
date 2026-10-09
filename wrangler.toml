@@ -1,0 +1,12 @@
+name = "nuz-zealous-portfolio"
+compatibility_date = "2025-06-30"
+
+[pages]
+# Static SPA build output
+build_output = "./dist"
+# Node/Python build mode not used; static is fine. Vite build is run locally,
+# then the dist is uploaded (or let Pages auto-detect via _worker.js if needed).
+
+# Custom domain(s) — add these in the Cloudflare dashboard too:
+#   nuzealous.xyz  (and www.nuzealous.xyz if desired)
+# Pages will serve the /dist static files and SPA fallbacks.

@@ -1,0 +1,6 @@
+#!/usr/bin/env node
+/**
+ * Placeholder for public/nuz.jpg
+ * Replace this file with your real profile/photo before deploying to nuzealous.xyz
+ */
+console.log('Replace public/nuz.jpg with your real image');
