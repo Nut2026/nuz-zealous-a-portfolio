@@ -2,6 +2,8 @@
 
 Welcome to my portfolio site, built as a single-page React app with TypeScript and Tailwind CSS!
 
+<img width="1280" height="720" alt="Image" src="https://github.com/user-attachments/assets/778cb97c-8722-4cf9-bc0d-ac849a5364a9" />
+
 ## Getting started
 
 ```bash
