@@ -1,6 +1,6 @@
-# Nuz Zealous — Portfolio
+# Nuz Zealous - A Portfolio
 
-A personal portfolio site for Nuz Zealous, built as a single-page React app with TypeScript and Tailwind CSS.
+Welcome to my portfolio site, built as a single-page React app with TypeScript and Tailwind CSS!
 
 ## Getting started
 
@@ -19,5 +19,4 @@ The typed source lives in `src/`, with components in `src/components`, hooks in 
 
 ## Notes
 
-- Logo image expected at `public/nuz.jpg`.
-- Favicon expected at `public/favicon.jpg`.
+Favicon and profile/logo image are expected at `public/`. 
