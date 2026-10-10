@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import FeaturedWork from './components/FeaturedWork'
+import FeaturedPrograms from './components/FeaturedPrograms'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -11,7 +11,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <FeaturedWork />
+        <FeaturedPrograms />
         <About />
         <Contact />
       </main>

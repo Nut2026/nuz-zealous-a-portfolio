@@ -7,7 +7,7 @@ import { cn } from '../lib/utils'
 const LEFT_TITLES = ['00', 'Ready, set', 'Kickoff', 'Once upon a time...']
 const RIGHT_TITLES = ['Fin', '∞', "Something's brewing!", 'The code and beyond']
 
-export default function FeaturedWork() {
+export default function FeaturedPrograms() {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null)
   const [leftTitle] = useState(() => LEFT_TITLES[Math.floor(Math.random() * LEFT_TITLES.length)])
   const [rightTitle] = useState(() => RIGHT_TITLES[Math.floor(Math.random() * RIGHT_TITLES.length)])
@@ -33,8 +33,6 @@ export default function FeaturedWork() {
   const dragStartX = useRef(0)
   const dragStartGlide = useRef(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const sliderTrackRef = useRef<HTMLDivElement>(null)
-  const isSliderDragging = useRef(false)
 
   const [viewportWidth, setViewportWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024)
 
@@ -117,43 +115,6 @@ export default function FeaturedWork() {
     }
   }
 
-  const sliderRatio = Math.max(0, Math.min(1, (glidePosition - MIN_GLIDE) / (MAX_GLIDE - MIN_GLIDE)))
-  const thumbWidthPercent = 24
-  const thumbLeftPercent = sliderRatio * (100 - thumbWidthPercent)
-
-  const calculateGlideFromSlider = (clientX: number) => {
-    if (!sliderTrackRef.current) return glidePosition
-    const rect = sliderTrackRef.current.getBoundingClientRect()
-    const clickX = clientX - rect.left
-    const ratio = Math.max(0, Math.min(1, clickX / rect.width))
-    return MIN_GLIDE + ratio * (MAX_GLIDE - MIN_GLIDE)
-  }
-
-  const handleSliderPointerDown = (e: React.PointerEvent) => {
-    isSliderDragging.current = true
-    ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
-    const nextGlide = calculateGlideFromSlider(e.clientX)
-    setGlidePosition(nextGlide)
-  }
-
-  const handleSliderPointerMove = (e: React.PointerEvent) => {
-    if (!isSliderDragging.current) return
-    const nextGlide = calculateGlideFromSlider(e.clientX)
-    setGlidePosition(nextGlide)
-  }
-
-  const handleSliderPointerUp = (e: React.PointerEvent) => {
-    if (!isSliderDragging.current) return
-    isSliderDragging.current = false
-    try {
-      ;(e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId)
-    } catch {
-      // ignore
-    }
-    const snapped = Math.round(glidePosition)
-    setGlidePosition(Math.max(MIN_GLIDE, Math.min(MAX_GLIDE, snapped)))
-  }
-
   const handleCardClick = (project: Project, index: number, isMiddle: boolean, e: React.MouseEvent) => {
     e.stopPropagation()
     if (isDragGesture.current) return
@@ -182,27 +143,7 @@ export default function FeaturedWork() {
       <div className="mb-6 px-2 md:px-8">
         <h2 className="mb-3 font-sans text-3xl font-bold tracking-tight md:text-4xl">Featured Programs</h2>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <p className="font-sans text-sm md:text-base text-muted">Meet my monthly builds!</p>
-
-          <div
-            ref={sliderTrackRef}
-            onPointerDown={handleSliderPointerDown}
-            onPointerMove={handleSliderPointerMove}
-            onPointerUp={handleSliderPointerUp}
-            onPointerCancel={handleSliderPointerUp}
-            className="relative flex h-2 w-24 cursor-pointer touch-none sliderBar"
-          >
-            <div className="absolute left-0 right-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-muted" />
-            <div
-              className="absolute top-1/2 h-5 w-5 -translate-y-1/2 rounded-full bg-accent shadow transition-transform duration-150"
-              style={{
-                left: `calc(${thumbLeftPercent}% - ${thumbWidthPercent / 2}%)`,
-                transform: 'translateY(-50%)',
-              }}
-            />
-          </div>
-        </div>
+        <p className="font-sans text-sm md:text-base text-muted">Meet my monthly builds!</p>
       </div>
 
       <div
