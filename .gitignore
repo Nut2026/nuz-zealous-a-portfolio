@@ -1,4 +1,4 @@
-# Environment and secret files (API keys, tokens, Cloudflare/Wrangler secrets, etc.)
+# Environment and secret files
 .env
 .env.*
 .env*
@@ -10,6 +10,8 @@
 *.env
 credentials*
 secret*
+*secret*
+.*secret*
 *.pem
 *.key
 *.p12
@@ -17,14 +19,9 @@ secret*
 *.crt
 *.cer
 
-# If you use Wrangler secrets or Cloudflare bindings, keep any local secret files out of git.
+# Note: If you use Wrangler secrets or Cloudflare bindings, keep any local secret files out of git.
 # Do NOT add real secret values to this repo. Use your host's secret store (e.g. Cloudflare
 # Workers/Pages secrets, .env only on your machine, etc.).
-
-# Catch-all for any file whose name contains 'secret' (e.g. secrets.json, .secrets.json,
-# *secret*.json). Kept explicit so nothing secret-ish slips through by filename.
-*secret*
-.*secret*
 
 # Dependencies
 node_modules/
@@ -58,3 +55,4 @@ node_modules/
 node_modules/.cache/
 node_modules/.tmp/
 dist/
+scripts/
