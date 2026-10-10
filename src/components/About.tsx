@@ -6,7 +6,7 @@ const techStack = {
   'Plugin Development': ['Anki', 'VS Code', 'Chrome', 'Excel'],
   'AI & Automation': ['PyTorch', 'Telethon', 'python-telegram-bot', 'discord.py'],
   Databases: ['PostgreSQL', 'SQLite', 'Supabase'],
-  Deployment: ['Vercel', 'Railway'],
+  Deployment: ['Vercel', 'Railway', 'Cloudfare'],
   Design: ['Inkscape', 'Blender', 'ibisPaint', 'Clipchamp'],
 }
 
