@@ -1,0 +1,103 @@
+name: Update FOSS PRs
+
+on:
+  schedule:
+    - cron: '10 13 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-prs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch merged PRs from GitHub API
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: 'Nut2026'
+        run: |
+          cat > fetch-prs.js << 'EOF'
+          const fs = require('fs');
+          const https = require('https');
+
+          const username = process.env.GITHUB_USERNAME;
+          const token = process.env.GH_TOKEN;
+
+          const repos = [
+            'vscode-icons/vscode-icons',
+            'h0tp-ftw/ankimon'
+          ];
+
+          const query = `author:${username} is:merged type:pr repo:${repos[0]} repo:${repos[1]}`;
+
+          const options = {
+            hostname: 'api.github.com',
+            path: `/search/issues?q=${encodeURIComponent(query)}&sort=created&order=desc&per_page=100`,
+            method: 'GET',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github+json',
+              'User-Agent': 'portfolio-pr-updater',
+              'X-GitHub-Api-Version': '2022-11-28'
+            }
+          };
+
+          const req = https.request(options, (res) => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+              if (res.statusCode !== 200) {
+                console.error('API request failed:', res.statusCode, data);
+                process.exit(1);
+              }
+
+              const result = JSON.parse(data);
+
+              const prs = result.items.map(item => ({
+                title: item.title,
+                url: item.html_url,
+                number: item.number,
+                repo: item.repository_url.replace('https://api.github.com/repos/', ''),
+                created_at: item.created_at,
+                merged_at: item.pull_request?.merged_at || null,
+                comments: item.comments
+              }));
+
+              const mergedPRs = prs.filter(pr => pr.merged_at);
+
+              mergedPRs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+              fs.writeFileSync('prs.json', JSON.stringify(mergedPRs, null, 2));
+              console.log(`Fetched ${mergedPRs.length} merged PRs.`);
+            });
+          });
+
+          req.on('error', (e) => {
+            console.error('Request error:', e);
+            process.exit(1);
+          });
+
+          req.end();
+          EOF
+          node fetch-prs.js
+
+      - name: Commit and push prs.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prs.json
+          if git diff --staged --quiet; then
+            echo "No changes to prs.json, skipping commit."
+          else
+            git commit -m "chore: update FOSS PRs [skip ci]"
+            git push
+          fi
