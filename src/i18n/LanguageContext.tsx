@@ -3,27 +3,29 @@ import type { UiStrings } from './ui'
 import { ui } from './ui'
 import type { Project } from '../data/projects'
 import { getProjects } from './projects-i18n'
-
-export type Lang = 'en' | 'ms' | 'zh' | 'hi'
-
+export type Lang = 'en' | 'ms' | 'zh'
 export const LANGUAGES: { id: Lang; native: string; code: string }[] = [
   { id: 'en', native: 'English', code: 'EN' },
   { id: 'ms', native: 'Bahasa Melayu', code: 'MS' },
   { id: 'zh', native: '中文', code: '中' },
-  { id: 'hi', native: 'हिन्दी', code: 'हिं' },
 ]
-
-export const LANG_STORAGE_KEY = 'nuz_lang'
 
 const LANG_TAGS: Record<Lang, string> = {
   en: 'en',
   ms: 'ms',
   zh: 'zh-CN',
-  hi: 'hi',
 }
 
-function isLang(value: string | null): value is Lang {
-  return value === 'en' || value === 'ms' || value === 'zh' || value === 'hi'
+function langFromPath(pathname: string): Lang {
+  if (pathname.startsWith('/en')) return 'en'
+  if (pathname.startsWith('/ms')) return 'ms'
+  if (pathname.startsWith('/zh')) return 'zh'
+  return 'en'
+}
+
+function pathWithLang(lang: Lang): string {
+  const rest = window.location.pathname.replace(/^\/?(en|ms|zh)\b\/?/, '')
+  return `/${lang}${rest}`
 }
 
 interface LanguageContextValue {
@@ -38,19 +40,28 @@ const LanguageContext = createContext<LanguageContextValue | null>(null)
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     if (typeof window === 'undefined') return 'en'
-    const stored = window.localStorage.getItem(LANG_STORAGE_KEY)
-    return isLang(stored) ? stored : 'en'
+    return langFromPath(window.location.pathname)
   })
 
   useEffect(() => {
-    window.localStorage.setItem(LANG_STORAGE_KEY, lang)
     document.documentElement.lang = LANG_TAGS[lang]
   }, [lang])
+
+  const setLangBound = useMemo(
+    () => (lang: Lang) => {
+      setLangState(lang)
+      const newPath = pathWithLang(lang)
+      if (window.location.pathname !== newPath) {
+        window.history.replaceState(null, '', newPath)
+      }
+    },
+    [],
+  )
 
   const value = useMemo<LanguageContextValue>(
     () => ({
       lang,
-      setLang: setLangState,
+      setLang: setLangBound,
       t: ui[lang],
       projects: getProjects(lang),
     }),

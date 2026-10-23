@@ -9,17 +9,20 @@
       // Use replaceState so the browser URL stays clean and client-side routing works.
       // Preserve the path for any future client routes; for now the app is all anchor-based.
       const path = location.pathname.replace(/\/$/, '') || '/';
-      if (path !== '/') {
-        history.replaceState(null, '', '/');
+      // Preserve the language prefix (/en, /ms, /zh) so the app loads in the right language.
+      const langPrefix = path.match(/^\/(en|ms|zh)/);
+      const appPath = langPrefix ? path : '/';
+      if (path !== appPath) {
+        history.replaceState(null, '', appPath);
       }
       // Small delay ensures Cloudflare Pages has finished serving this 404.html
       // before the app shell loads as index.html.
       window.addEventListener('load', () => {
-        location.replace('/');
+        location.replace(appPath);
       });
       // Fallback if load already fired.
       if (document.readyState === 'complete') {
-        location.replace('/');
+        location.replace(appPath);
       }
     </script>
   </head>

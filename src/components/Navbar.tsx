@@ -15,7 +15,6 @@ const languages = [
   { id: 'ms', native: 'Bahasa Melayu', code: 'MS' },
   { id: 'en', native: 'English', code: 'EN' },
   { id: 'zh', native: '中文', code: '中' },
-  { id: 'hi', native: 'हिन्दी', code: 'हिं' },
 ] as const
 
 export default function Navbar() {
