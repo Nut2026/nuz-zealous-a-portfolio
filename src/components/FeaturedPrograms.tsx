@@ -1,22 +1,31 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
-import { ExternalLink, Github, BookOpen } from 'lucide-react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+import { ExternalLink, Github, BookOpen, Play } from 'lucide-react'
 import CaseStudyModal from './CaseStudyModal'
 import { projects, type Project } from '../data/projects'
+import { useLanguage } from '../i18n/LanguageContext'
 import { cn } from '../lib/utils'
 
-const LEFT_TITLES = ['00', 'Ready, set', 'Kickoff', 'Once upon a time...']
-const RIGHT_TITLES = ['Fin', '∞', "Something's brewing!", 'The code and beyond']
+function fmt(template: string, vars: Record<string, string | number>): string {
+  return template.replace(/\{(\w+)\}/g, (_, key) => String(vars[key] ?? ''))
+}
 
 export default function FeaturedPrograms() {
+  const { t, projects: localizedProjects } = useLanguage()
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null)
-  const [leftTitle] = useState(() => LEFT_TITLES[Math.floor(Math.random() * LEFT_TITLES.length)])
-  const [rightTitle] = useState(() => RIGHT_TITLES[Math.floor(Math.random() * RIGHT_TITLES.length)])
+  const leftTitle = useMemo(
+    () => t.featured.leftTitles[Math.floor(Math.random() * t.featured.leftTitles.length)],
+    [t],
+  )
+  const rightTitle = useMemo(
+    () => t.featured.rightTitles[Math.floor(Math.random() * t.featured.rightTitles.length)],
+    [t],
+  )
 
-  const starredIndex = projects.findIndex((p) => p.featured ?? false)
+  const starredIndex = localizedProjects.findIndex((p) => p.featured ?? false)
   const fallbackIndex = starredIndex === -1 ? projects.length - 1 : starredIndex
 
   const MIN_GLIDE = -1
-  const MAX_GLIDE = projects.length
+  const MAX_GLIDE = localizedProjects.length
 
   const [glidePosition, setGlidePosition] = useState(() => {
     const saved = sessionStorage.getItem('nuz_featured_glide')
@@ -126,7 +135,7 @@ export default function FeaturedPrograms() {
     }
   }
 
-  const lastProject = projects[projects.length - 1]
+  const lastProject = localizedProjects[localizedProjects.length - 1]
   const lastProjectTitle = lastProject?.title ?? 'Nuz Zealous - A Portfolio'
   const lastProjectMonth = lastProject?.month ?? 'September 2026'
 
@@ -141,9 +150,9 @@ export default function FeaturedPrograms() {
   return (
     <section id="programs" className="mx-auto max-w-7xl px-4 pt-16 pb-2 md:pb-6 select-none">
       <div className="mb-6 px-2 md:px-8">
-        <h2 className="mb-3 font-sans text-3xl font-bold tracking-tight md:text-4xl">Featured Programs</h2>
+        <h2 className="mb-3 font-sans text-3xl font-bold tracking-tight md:text-4xl">{t.featured.title}</h2>
 
-        <p className="font-sans text-sm md:text-base text-muted">Meet my monthly builds!</p>
+        <p className="font-sans text-sm md:text-base text-muted">{t.featured.subtitle}</p>
       </div>
 
       <div
@@ -166,17 +175,22 @@ export default function FeaturedPrograms() {
             glideTo,
             cardWidth,
             leftTitle,
-            'Slide to first build',
+            t.featured.slideFirst,
             'arrow-moving-right',
             'M5 12h14M12 5l7 7-7 7',
+            fmt(t.featured.firstBuild, {
+              title: localizedProjects[0]?.title ?? 'Nuzzle',
+              month: localizedProjects[0]?.month ?? '',
+            }),
           )}
 
-          {projects.map((project, idx) => {
+          {localizedProjects.map((project, idx) => {
             const dist = idx - glidePosition
             if (Math.abs(dist) >= 2.5) return null
 
             const isMiddle = Math.abs(dist) < 0.4
             const isFeatured = project.featured ?? false
+            const isPortfolio = project.id === 'nuz-zealous-a-portfolio'
 
             return (
               <div
@@ -207,7 +221,7 @@ export default function FeaturedPrograms() {
                     />
                     {isFeatured && (
                       <div className="absolute top-2.5 right-2.5 md:top-3 md:right-3 rounded-full bg-amber-500/90 px-2.5 py-0.5 md:px-3 md:py-1 font-mono text-[10px] md:text-xs font-bold text-dark shadow-md backdrop-blur-sm dark:bg-amber-400/90">
-                        ⭐ Starred Build
+                        ⭐ {t.cards.starred}
                       </div>
                     )}
                   </div>
@@ -242,8 +256,8 @@ export default function FeaturedPrograms() {
                           data-interactive="true"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <ExternalLink size={13} />
-                          Visit Live
+                          {isPortfolio ? <ExternalLink size={13} /> : <Play size={13} />}
+                          {isPortfolio ? t.cards.visitLive : t.cards.watchVid}
                         </a>
                       )}
                       <a
@@ -255,7 +269,7 @@ export default function FeaturedPrograms() {
                         onClick={(e) => e.stopPropagation()}
                       >
                         <Github size={13} />
-                        Repo
+                        {t.cards.repo}
                       </a>
                       <button
                         type="button"
@@ -267,7 +281,7 @@ export default function FeaturedPrograms() {
                         data-interactive="true"
                       >
                         <BookOpen size={13} />
-                        Case Study
+                        {t.cards.caseStudy}
                       </button>
                     </div>
                   </div>
@@ -285,11 +299,10 @@ export default function FeaturedPrograms() {
             glideTo,
             cardWidth,
             rightTitle,
-            'Slide to latest build',
+            t.featured.slideLatest,
             'arrow-moving-left',
             'M19 12H5M12 19l-7-7 7-7',
-            lastProjectTitle,
-            lastProjectMonth,
+            fmt(t.featured.latestBuild, { title: lastProjectTitle, month: lastProjectMonth }),
           )}
         </div>
       </div>
@@ -314,8 +327,7 @@ function renderPlaceholder(
   ariaLabel: string,
   arrowClass: string,
   arrowPath: string,
-  subtitleExtra?: string,
-  subtitleMonth?: string,
+  body: string,
 ) {
   const dist = index - glidePosition
   if (Math.abs(dist) >= 2.5) return null
@@ -362,9 +374,7 @@ function renderPlaceholder(
         </h4>
 
         <p className="relative z-10 mt-3 max-w-xs md:max-w-sm font-sans text-xs md:text-sm text-muted">
-          {index === -1
-            ? 'Welcome, Nuzzle (January 2026) is my first build!'
-            : `${subtitleExtra} (${subtitleMonth}) is my latest build. More will come!`}
+          {body}
         </p>
 
         <button

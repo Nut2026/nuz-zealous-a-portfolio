@@ -46,24 +46,6 @@
     }
   }
 
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #5dc8ff;
-    border-radius: 9999px;
-  }
-
-  .custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: #5dc8ff transparent;
-  }
-
   .starred-gold-border {
     border-color: #f59e0b;
     box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
@@ -83,6 +65,79 @@
   .dark .starred-gold-border:hover {
     border-color: #fef08a;
     box-shadow: 0 0 20px rgba(251, 191, 36, 0.55);
+  }
+
+/* Native scrollbars are replaced by the RoundedScrollbar overlay. */
+  .no-native-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-native-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Warm orange-red ember glow around the FOSS contribution boxes. */
+  .foss-ember-border {
+    border-color: rgba(255, 92, 46, 0.55);
+    box-shadow:
+      0 0 12px rgba(255, 92, 46, 0.25),
+      inset 0 0 10px rgba(255, 92, 46, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .foss-ember-border:hover {
+    border-color: rgba(255, 122, 76, 0.7);
+    box-shadow:
+      0 0 16px rgba(255, 122, 76, 0.38),
+      inset 0 0 12px rgba(255, 92, 46, 0.09);
+  }
+
+  .dark .foss-ember-border {
+    border-color: rgba(255, 110, 60, 0.5);
+    box-shadow:
+      0 0 14px rgba(255, 110, 60, 0.28),
+      inset 0 0 10px rgba(255, 110, 60, 0.07);
+  }
+
+  .dark .foss-ember-border:hover {
+    border-color: rgba(255, 140, 90, 0.65);
+    box-shadow:
+      0 0 18px rgba(255, 140, 90, 0.42),
+      inset 0 0 12px rgba(255, 110, 60, 0.1);
+  }
+
+  /* Small pulsing "live" light inside the merged badge. */
+  @keyframes live-dot {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.35;
+      transform: scale(0.82);
+    }
+  }
+
+  .animate-live-dot {
+    animation: live-dot 1.4s ease-in-out infinite;
+  }
+
+  /* Typing caret for the hero name animation. */
+  @keyframes caret-blink {
+    0%,
+    45% {
+      opacity: 1;
+    }
+    55%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .animate-caret-blink {
+    animation: caret-blink 1s step-end infinite;
   }
 
   @keyframes marching-ants {

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { Github, Mail, MessageCircle, Check } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [copied, setCopied] = useState(false)
   const email = 'nuzealouss@gmail.com'
 
@@ -19,10 +21,21 @@ export default function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-4xl px-6 py-24 text-center">
       <h2 className="mb-4 font-sans text-4xl font-bold tracking-tight md:text-5xl">
-        Let's Build Amazingz Together.
+        {t.contact.heading.map((seg, i) =>
+          seg.style === 'hl' ? (
+            <span
+              key={i}
+              className="cursor-default transition-colors duration-200 hover:text-accent"
+            >
+              {seg.text}
+            </span>
+          ) : (
+            <span key={i}>{seg.text}</span>
+          ),
+        )}
       </h2>
       <p className="mx-auto mb-10 max-w-lg font-sans text-[18px] text-muted">
-        🟢 Currently available for freelance / part-time roles / open-source collaboration.
+        {t.contact.available}
       </p>
 
       <div className="mb-10 flex flex-wrap items-center justify-center gap-4">
@@ -32,7 +45,7 @@ export default function Contact() {
           className="relative flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-sans text-sm font-semibold text-dark transition-all duration-200 hover:scale-105"
         >
           {copied ? <Check size={18} /> : <Mail size={18} />}
-          <span>{copied ? 'Email copied!' : 'Copy my Email'}</span>
+          <span>{copied ? t.contact.emailCopied : t.contact.copyEmail}</span>
         </a>
 
         <a
@@ -42,12 +55,12 @@ export default function Contact() {
           className="relative flex items-center justify-center gap-2 rounded-full border border-dark/20 px-6 py-3 font-sans text-sm font-semibold text-dark transition-all duration-200 hover:scale-105 dark:border-light/20 dark:text-light"
         >
           <MessageCircle size={18} />
-          <span>Talk on Telegram</span>
+          <span>{t.contact.telegram}</span>
         </a>
       </div>
 
       <p className="font-sans text-sm text-muted">
-        Or find me on{' '}
+        {t.contact.findOn}{' '}
         <a
           href="https://github.com/Nut2026"
           target="_blank"
@@ -60,7 +73,7 @@ export default function Contact() {
           />
           GitHub
         </a>{' '}
-        and{' '}
+        {t.contact.and}{' '}
         <a
           href="https://devpost.com/nuzealous"
           target="_blank"
@@ -72,6 +85,7 @@ export default function Contact() {
           />
           Devpost
         </a>
+        {t.contact.tail}
       </p>
     </section>
   )

@@ -1,10 +1,12 @@
 import { Github } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="border-t border-dark/10 px-6 py-8 dark:border-light/10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
-        <p className="text-center font-mono text-xs text-muted">© 2026 Nuz Zealous. Built at night on a brainwave.</p>
+        <p className="text-center font-mono text-xs text-muted">{t.footer.line}</p>
         <a
           href="https://github.com/Nut2026/nuz-zealous-a-portfolio"
           target="_blank"
