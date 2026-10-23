@@ -139,7 +139,7 @@ export default function FeaturedPrograms() {
   })
 
   return (
-    <section id="work" className="mx-auto max-w-7xl px-4 pt-16 pb-2 md:pb-6 select-none">
+    <section id="programs" className="mx-auto max-w-7xl px-4 pt-16 pb-2 md:pb-6 select-none">
       <div className="mb-6 px-2 md:px-8">
         <h2 className="mb-3 font-sans text-3xl font-bold tracking-tight md:text-4xl">Featured Programs</h2>
 

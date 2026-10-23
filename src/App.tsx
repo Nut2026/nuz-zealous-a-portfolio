@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import FossFire from './components/FossFire'
 import FeaturedPrograms from './components/FeaturedPrograms'
 import About from './components/About'
 import Contact from './components/Contact'
@@ -11,6 +12,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <FossFire />
         <FeaturedPrograms />
         <About />
         <Contact />

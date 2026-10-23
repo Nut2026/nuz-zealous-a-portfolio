@@ -1,0 +1,326 @@
+[
+  {
+    "title": "feat(icon): add Discord folder icons",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4370",
+    "number": 4370,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-10-15T01:51:46Z",
+    "merged_at": "2026-10-16T08:39:07Z",
+    "comments": 2
+  },
+  {
+    "title": "fix(XPBar): address fill bar clipping off-screen and implement track bar",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/963",
+    "number": 963,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-14T06:52:30Z",
+    "merged_at": "2026-10-15T09:27:52Z",
+    "comments": 4
+  },
+  {
+    "title": "feat(icon): add `README.md` and `INDEX.md`",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4363",
+    "number": 4363,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-10-14T01:23:10Z",
+    "merged_at": "2026-10-14T12:38:38Z",
+    "comments": 2
+  },
+  {
+    "title": "update(removeLevelCap): reinforce level cap on wild encounters",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/952",
+    "number": 952,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-10T13:10:44Z",
+    "merged_at": "2026-10-12T08:04:33Z",
+    "comments": 11
+  },
+  {
+    "title": "update(backupManager): move Backup Manager to Web UI",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/944",
+    "number": 944,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-09T13:07:51Z",
+    "merged_at": "2026-10-15T08:15:15Z",
+    "comments": 19
+  },
+  {
+    "title": "feat(icon): add domain folder icons",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4342",
+    "number": 4342,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-10-08T01:20:22Z",
+    "merged_at": "2026-10-14T01:48:06Z",
+    "comments": 3
+  },
+  {
+    "title": "feat(icon): add PyInstaller file icon",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4340",
+    "number": 4340,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-10-07T11:07:43Z",
+    "merged_at": "2026-10-13T16:01:17Z",
+    "comments": 5
+  },
+  {
+    "title": "update(monthlyChallenge): manual window's UI/UX",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/941",
+    "number": 941,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-07T06:40:27Z",
+    "merged_at": "2026-10-11T04:48:58Z",
+    "comments": 14
+  },
+  {
+    "title": "feat(icon): support `MANIFEST.in` file",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4334",
+    "number": 4334,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-10-07T00:44:48Z",
+    "merged_at": "2026-10-08T10:24:15Z",
+    "comments": 2
+  },
+  {
+    "title": "move(directory): `ankimon_backups` folder location",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/895",
+    "number": 895,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-09-24T07:06:36Z",
+    "merged_at": "2026-09-26T01:55:22Z",
+    "comments": 12
+  },
+  {
+    "title": "security(sprites): add path traversal protection to sprite resolution functions",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/842",
+    "number": 842,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-09-08T09:40:53Z",
+    "merged_at": "2026-09-09T04:34:37Z",
+    "comments": 10
+  },
+  {
+    "title": "bug(settings): settings launching back to top with every setting change",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/832",
+    "number": 832,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-09-03T12:56:01Z",
+    "merged_at": "2026-09-05T10:27:39Z",
+    "comments": 9
+  },
+  {
+    "title": "bug(navSwitcher): menu bar unscrollable/clips off-screen",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/830",
+    "number": 830,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-09-03T12:01:37Z",
+    "merged_at": "2026-09-07T11:23:43Z",
+    "comments": 7
+  },
+  {
+    "title": "add(webUI): sets the standard pBall icon as window icons for all Web UI windows",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/829",
+    "number": 829,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-09-03T12:01:31Z",
+    "merged_at": "2026-09-22T21:17:02Z",
+    "comments": 8
+  },
+  {
+    "title": "add(monChallenge) - 1 of 2: feature to accept/reject Monthly Challenge Mon",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/827",
+    "number": 827,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-09-03T12:01:09Z",
+    "merged_at": "2026-09-26T04:19:27Z",
+    "comments": 23
+  },
+  {
+    "title": "feature(monPC): text presentation and shiny overlay",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/811",
+    "number": 811,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-29T23:16:33Z",
+    "merged_at": "2026-09-02T11:49:47Z",
+    "comments": 14
+  },
+  {
+    "title": "feature(badges): highlight obtained badges",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/810",
+    "number": 810,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-29T22:33:32Z",
+    "merged_at": "2026-08-29T22:42:34Z",
+    "comments": 3
+  },
+  {
+    "title": "move(styling): Styling in Reviewer as a HUD element toggle",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/795",
+    "number": 795,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-28T07:16:56Z",
+    "merged_at": "2026-08-29T23:21:49Z",
+    "comments": 12
+  },
+  {
+    "title": "feat(ui): Improve status display for updates",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/778",
+    "number": 778,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-21T10:18:57Z",
+    "merged_at": "2026-09-20T00:56:34Z",
+    "comments": 11
+  },
+  {
+    "title": "feat(ui): Streamline update notes window",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/771",
+    "number": 771,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-20T01:36:20Z",
+    "merged_at": "2026-09-20T01:40:00Z",
+    "comments": 20
+  },
+  {
+    "title": "add(functionality): defeat or capture on demand",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/746",
+    "number": 746,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-13T02:39:13Z",
+    "merged_at": "2026-08-15T04:17:17Z",
+    "comments": 17
+  },
+  {
+    "title": "feat(add): add show sprites across Ankimon setting",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/719",
+    "number": 719,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-03T00:59:19Z",
+    "merged_at": "2026-08-15T00:45:35Z",
+    "comments": 38
+  },
+  {
+    "title": "update(docs): rewrite outdated user_files/ README to match current folder contents",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/718",
+    "number": 718,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-08-03T00:57:06Z",
+    "merged_at": "2026-08-15T00:44:57Z",
+    "comments": 6
+  },
+  {
+    "title": "feat(fix): unobtainable badge 11",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/696",
+    "number": 696,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-07-26T07:04:32Z",
+    "merged_at": "2026-07-29T06:40:20Z",
+    "comments": 4
+  },
+  {
+    "title": "feat(fix): unobtainable badge 19",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/693",
+    "number": 693,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-07-26T06:28:15Z",
+    "merged_at": "2026-07-29T09:46:40Z",
+    "comments": 6
+  },
+  {
+    "title": "feat(fix): unobtainable badge 12 and 13",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/690",
+    "number": 690,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-07-26T06:10:03Z",
+    "merged_at": "2026-08-08T10:06:11Z",
+    "comments": 7
+  },
+  {
+    "title": "feat(fix): unobtainable badge 7",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/666",
+    "number": 666,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-07-26T05:29:28Z",
+    "merged_at": "2026-08-08T10:06:25Z",
+    "comments": 1
+  },
+  {
+    "title": "feat(move): move ankimon leaderboard credentials to settings",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/643",
+    "number": 643,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-07-18T00:11:22Z",
+    "merged_at": "2026-07-24T11:45:03Z",
+    "comments": 7
+  },
+  {
+    "title": "feat(icon): support logging and logger",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4168",
+    "number": 4168,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-07-09T01:38:39Z",
+    "merged_at": "2026-08-14T09:04:34Z",
+    "comments": 0
+  },
+  {
+    "title": "feat(icon): add auth folder icons",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4161",
+    "number": 4161,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-07-06T07:15:19Z",
+    "merged_at": "2026-09-27T10:29:53Z",
+    "comments": 1
+  },
+  {
+    "title": "feat(icon): support translation and translations",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4158",
+    "number": 4158,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-07-05T12:37:34Z",
+    "merged_at": "2026-09-27T10:35:03Z",
+    "comments": 0
+  },
+  {
+    "title": "feat(icon): add telegram folder icons",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4157",
+    "number": 4157,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-07-05T12:18:13Z",
+    "merged_at": "2026-07-06T07:50:56Z",
+    "comments": 1
+  },
+  {
+    "title": "feat(icon): add schema folder icons",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4144",
+    "number": 4144,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-07-01T11:40:53Z",
+    "merged_at": "2026-09-27T10:30:50Z",
+    "comments": 1
+  },
+  {
+    "title": "feat(icon): add dedicated csv icon",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4125",
+    "number": 4125,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-06-26T10:03:41Z",
+    "merged_at": "2026-09-26T20:22:29Z",
+    "comments": 4
+  },
+  {
+    "title": "Add mobile folder icons (closed/opened)",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4120",
+    "number": 4120,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-06-26T02:51:17Z",
+    "merged_at": "2026-06-27T17:52:44Z",
+    "comments": 1
+  },
+  {
+    "title": "feat(icon): support `backend` and `.backend`",
+    "url": "https://github.com/vscode-icons/vscode-icons/pull/4023",
+    "number": 4023,
+    "repo": "vscode-icons/vscode-icons",
+    "created_at": "2026-04-20T11:41:50Z",
+    "merged_at": "2026-10-18T08:45:42Z",
+    "comments": 12
+  }
+]

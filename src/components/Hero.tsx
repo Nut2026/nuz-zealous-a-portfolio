@@ -35,7 +35,7 @@ export default function Hero() {
 
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
-            onClick={() => handleScrollTo('#work')}
+            onClick={() => handleScrollTo('#foss')}
             className="flex items-center gap-2 rounded-full bg-accent px-8 py-3 font-sans text-sm font-semibold text-dark transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-accent/30"
           >
             View My Work

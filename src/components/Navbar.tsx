@@ -5,14 +5,14 @@ import { useActiveSection } from '../hooks/useActiveSection'
 import { cn } from '../lib/utils'
 
 const navLinks = [
-  { label: 'Work', href: '#work' },
+  { label: 'Work', href: '#foss' },
   { label: 'About', href: '#about' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
-  const activeSection = useActiveSection(['hero', 'work', 'about', 'contact'])
+  const activeSection = useActiveSection(['hero', 'foss', 'programs', 'about', 'contact'])
 
   const handleNavClick = (href: string) => {
     const el = document.querySelector(href)
