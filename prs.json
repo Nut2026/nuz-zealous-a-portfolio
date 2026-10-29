@@ -1,23 +1,5 @@
 [
   {
-    "title": "fix: item wishlist ui/ux",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/1017",
-    "number": 1017,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-10-28T11:40:03Z",
-    "merged_at": "2026-10-28T11:40:26Z",
-    "comments": 1
-  },
-  {
-    "title": "fix: delete pikachu files",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/1016",
-    "number": 1016,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-10-28T06:17:20Z",
-    "merged_at": "2026-10-28T06:18:20Z",
-    "comments": 1
-  },
-  {
     "title": "fix(version): allow `major.minor.patch` and `E` flags",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/995",
     "number": 995,
