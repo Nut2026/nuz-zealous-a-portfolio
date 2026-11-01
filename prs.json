@@ -1,12 +1,30 @@
 [
   {
+    "title": "feat(fix): resolve `TypeError` on startup in legacy Anki versions (Python 3.9 / Anki 24.06)",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/1023",
+    "number": 1023,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-30T02:55:54Z",
+    "merged_at": "2026-10-31T23:36:11Z",
+    "comments": 12
+  },
+  {
     "title": "fix(tests): isolate Anki mocks for current pytest",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/1022",
     "number": 1022,
     "repo": "h0tp-ftw/ankimon",
     "created_at": "2026-10-29T07:11:17Z",
     "merged_at": "2026-11-01T00:31:17Z",
-    "comments": 8
+    "comments": 9
+  },
+  {
+    "title": "fix(reviewer): improve HUD presentation when Styling's disabled",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/1009",
+    "number": 1009,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-26T01:11:05Z",
+    "merged_at": "2026-11-01T11:49:29Z",
+    "comments": 10
   },
   {
     "title": "fix(version): allow `major.minor.patch` and `E` flags",
@@ -178,176 +196,5 @@
     "created_at": "2026-08-28T07:16:56Z",
     "merged_at": "2026-08-29T23:21:49Z",
     "comments": 12
-  },
-  {
-    "title": "feat(ui): Improve status display for updates",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/778",
-    "number": 778,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-08-21T10:18:57Z",
-    "merged_at": "2026-09-20T00:56:34Z",
-    "comments": 11
-  },
-  {
-    "title": "feat(ui): Streamline update notes window",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/771",
-    "number": 771,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-08-20T01:36:20Z",
-    "merged_at": "2026-09-20T01:40:00Z",
-    "comments": 20
-  },
-  {
-    "title": "add(functionality): defeat or capture on demand",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/746",
-    "number": 746,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-08-13T02:39:13Z",
-    "merged_at": "2026-08-15T04:17:17Z",
-    "comments": 17
-  },
-  {
-    "title": "feat(add): add show sprites across Ankimon setting",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/719",
-    "number": 719,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-08-03T00:59:19Z",
-    "merged_at": "2026-08-15T00:45:35Z",
-    "comments": 38
-  },
-  {
-    "title": "update(docs): rewrite outdated user_files/ README to match current folder contents",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/718",
-    "number": 718,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-08-03T00:57:06Z",
-    "merged_at": "2026-08-15T00:44:57Z",
-    "comments": 6
-  },
-  {
-    "title": "feat(fix): unobtainable badge 11",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/696",
-    "number": 696,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-07-26T07:04:32Z",
-    "merged_at": "2026-07-29T06:40:20Z",
-    "comments": 4
-  },
-  {
-    "title": "feat(fix): unobtainable badge 19",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/693",
-    "number": 693,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-07-26T06:28:15Z",
-    "merged_at": "2026-07-29T09:46:40Z",
-    "comments": 6
-  },
-  {
-    "title": "feat(fix): unobtainable badge 12 and 13",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/690",
-    "number": 690,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-07-26T06:10:03Z",
-    "merged_at": "2026-08-08T10:06:11Z",
-    "comments": 7
-  },
-  {
-    "title": "feat(fix): unobtainable badge 7",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/666",
-    "number": 666,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-07-26T05:29:28Z",
-    "merged_at": "2026-08-08T10:06:25Z",
-    "comments": 1
-  },
-  {
-    "title": "feat(move): move ankimon leaderboard credentials to settings",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/643",
-    "number": 643,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-07-18T00:11:22Z",
-    "merged_at": "2026-07-24T11:45:03Z",
-    "comments": 7
-  },
-  {
-    "title": "feat(icon): support logging and logger",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4168",
-    "number": 4168,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-07-09T01:38:39Z",
-    "merged_at": "2026-08-14T09:04:34Z",
-    "comments": 0
-  },
-  {
-    "title": "feat(icon): add auth folder icons",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4161",
-    "number": 4161,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-07-06T07:15:19Z",
-    "merged_at": "2026-09-27T10:29:53Z",
-    "comments": 1
-  },
-  {
-    "title": "feat(icon): support translation and translations",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4158",
-    "number": 4158,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-07-05T12:37:34Z",
-    "merged_at": "2026-09-27T10:35:03Z",
-    "comments": 0
-  },
-  {
-    "title": "feat(icon): add telegram folder icons",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4157",
-    "number": 4157,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-07-05T12:18:13Z",
-    "merged_at": "2026-07-06T07:50:56Z",
-    "comments": 1
-  },
-  {
-    "title": "feat(icon): add schema folder icons",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4144",
-    "number": 4144,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-07-01T11:40:53Z",
-    "merged_at": "2026-09-27T10:30:50Z",
-    "comments": 1
-  },
-  {
-    "title": "feat(icon): add dedicated csv icon",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4125",
-    "number": 4125,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-06-26T10:03:41Z",
-    "merged_at": "2026-09-26T20:22:29Z",
-    "comments": 4
-  },
-  {
-    "title": "Add mobile folder icons (closed/opened)",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4120",
-    "number": 4120,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-06-26T02:51:17Z",
-    "merged_at": "2026-06-27T17:52:44Z",
-    "comments": 1
-  },
-  {
-    "title": "feat(icon): support `backend` and `.backend`",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4023",
-    "number": 4023,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-04-20T11:41:50Z",
-    "merged_at": "2026-10-18T08:45:42Z",
-    "comments": 12
-  },
-  {
-    "title": "feat(icon): add frontend folder icons",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4020",
-    "number": 4020,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-04-19T11:40:54Z",
-    "merged_at": "2026-10-22T13:13:17Z",
-    "comments": 18
   }
 ]
