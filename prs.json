@@ -1,5 +1,14 @@
 [
   {
+    "title": "fix(tests): isolate Anki mocks for current pytest",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/1022",
+    "number": 1022,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-10-29T07:11:17Z",
+    "merged_at": "2026-11-01T00:31:17Z",
+    "comments": 8
+  },
+  {
     "title": "fix(version): allow `major.minor.patch` and `E` flags",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/995",
     "number": 995,
