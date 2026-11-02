@@ -187,14 +187,5 @@
     "created_at": "2026-08-29T22:33:32Z",
     "merged_at": "2026-08-29T22:42:34Z",
     "comments": 3
-  },
-  {
-    "title": "move(styling): Styling in Reviewer as a HUD element toggle",
-    "url": "https://github.com/h0tp-ftw/ankimon/pull/795",
-    "number": 795,
-    "repo": "h0tp-ftw/ankimon",
-    "created_at": "2026-08-28T07:16:56Z",
-    "merged_at": "2026-08-29T23:21:49Z",
-    "comments": 12
   }
 ]
