@@ -1,5 +1,14 @@
 [
   {
+    "title": "fix(reviewer): keep plain-mode FAINTED visible on light theme",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/1036",
+    "number": 1036,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-11-01T12:04:07Z",
+    "merged_at": "2026-11-02T11:02:09Z",
+    "comments": 5
+  },
+  {
     "title": "feat(fix): resolve `TypeError` on startup in legacy Anki versions (Python 3.9 / Anki 24.06)",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/1023",
     "number": 1023,
