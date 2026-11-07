@@ -1,5 +1,14 @@
 [
   {
+    "title": "fix(ci): pin runner to Ubuntu 22.04 for Python 3.9 compatibility",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/1056",
+    "number": 1056,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-11-04T12:22:00Z",
+    "merged_at": "2026-11-07T05:16:14Z",
+    "comments": 2
+  },
+  {
     "title": "fix(reviewer): keep plain-mode FAINTED visible on light theme",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/1036",
     "number": 1036,
