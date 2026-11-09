@@ -126,15 +126,6 @@
     "comments": 14
   },
   {
-    "title": "feat(icon): support `MANIFEST.in` file",
-    "url": "https://github.com/vscode-icons/vscode-icons/pull/4334",
-    "number": 4334,
-    "repo": "vscode-icons/vscode-icons",
-    "created_at": "2026-10-07T00:44:48Z",
-    "merged_at": "2026-10-08T10:24:15Z",
-    "comments": 2
-  },
-  {
     "title": "move(directory): `ankimon_backups` folder location",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/895",
     "number": 895,
