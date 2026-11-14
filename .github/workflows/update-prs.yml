@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: read
 
 jobs:
   update-prs:
@@ -34,15 +33,15 @@ jobs:
           const token = process.env.GH_TOKEN;
 
           const queries = [
-            `is:merged type:pr repo:vscode-icons/vscode-icons base:master`,
-            `is:merged type:pr repo:h0tp-ftw/ankimon base:main`
+            `author:${username} is:merged type:pr repo:vscode-icons/vscode-icons base:master`,
+            `author:${username} is:merged type:pr repo:h0tp-ftw/ankimon base:main`
           ];
 
-          function apiGet(path) {
+          function fetchQuery(query) {
             return new Promise((resolve, reject) => {
               const options = {
                 hostname: 'api.github.com',
-                path,
+                path: `/search/issues?q=${encodeURIComponent(query)}&sort=created&order=desc&per_page=100`,
                 method: 'GET',
                 headers: {
                   'Authorization': `Bearer ${token}`,
@@ -51,39 +50,21 @@ jobs:
                   'X-GitHub-Api-Version': '2022-11-28'
                 }
               };
+
               const req = https.request(options, (res) => {
                 let data = '';
                 res.on('data', chunk => data += chunk);
                 res.on('end', () => {
                   if (res.statusCode !== 200) {
-                    return reject(new Error(`API failed (${res.statusCode}) for ${path}: ${data}`));
+                    return reject(new Error(`API failed: ${res.statusCode} ${data}`));
                   }
-                  resolve(JSON.parse(data));
+                  resolve(JSON.parse(data).items);
                 });
               });
+
               req.on('error', reject);
               req.end();
             });
-          }
-
-          async function fetchQuery(query) {
-            const data = await apiGet(
-              `/search/issues?q=${encodeURIComponent(query)}&sort=created&order=desc&per_page=100`
-            );
-            return data.items;
-          }
-
-          async function prHasMyCommit(repo, prNumber) {
-            let page = 1;
-            while (true) {
-              const commits = await apiGet(
-                `/repos/${repo}/pulls/${prNumber}/commits?per_page=100&page=${page}`
-              );
-              if (!Array.isArray(commits) || commits.length === 0) return false;
-              if (commits.some(c => c.author && c.author.login === username)) return true;
-              if (commits.length < 100) return false; // last page
-              page++;
-            }
           }
 
           (async () => {
@@ -91,49 +72,22 @@ jobs:
               const results = await Promise.all(queries.map(q => fetchQuery(q)));
               const allItems = results.flat();
 
-              const seen = new Set();
-              const uniqueItems = [];
-              for (const item of allItems) {
-                if (item.pull_request?.merged_at && !seen.has(item.html_url)) {
-                  seen.add(item.html_url);
-                  uniqueItems.push(item);
-                }
-              }
-
-              const mergedPRs = [];
-              for (const item of uniqueItems) {
-                const repo = item.repository_url.replace('https://api.github.com/repos/', '');
-
-                // Already authored by you? Keep without extra API call.
-                let keep = item.user?.login === username;
-
-                // Otherwise, check if any commit in the PR is authored by you.
-                if (!keep) {
-                  try {
-                    keep = await prHasMyCommit(repo, item.number);
-                  } catch (e) {
-                    console.error(`Skipping PR #${item.number} (${repo}): ${e.message}`);
-                    keep = false;
-                  }
-                }
-
-                if (keep) {
-                  mergedPRs.push({
-                    title: item.title,
-                    url: item.html_url,
-                    number: item.number,
-                    repo,
-                    created_at: item.created_at,
-                    merged_at: item.pull_request.merged_at,
-                    comments: item.comments
-                  });
-                }
-              }
+              const mergedPRs = allItems
+                .map(item => ({
+                  title: item.title,
+                  url: item.html_url,
+                  number: item.number,
+                  repo: item.repository_url.replace('https://api.github.com/repos/', ''),
+                  created_at: item.created_at,
+                  merged_at: item.pull_request?.merged_at || null,
+                  comments: item.comments
+                }))
+                .filter(pr => pr.merged_at);
 
               mergedPRs.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
               fs.writeFileSync('prs.json', JSON.stringify(mergedPRs, null, 2));
-              console.log(`Fetched ${mergedPRs.length} merged PRs (authored by or containing commits from ${username}).`);
+              console.log(`Fetched ${mergedPRs.length} merged PRs (base:master or base:main only).`);
             } catch (err) {
               console.error(err);
               process.exit(1);
@@ -153,3 +107,4 @@ jobs:
             git commit -m "chore: update FOSS PRs [skip ci]"
             git push
           fi
+  
