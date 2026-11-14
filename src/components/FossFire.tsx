@@ -263,7 +263,7 @@ function RepoCard({ repo, prs, failed, onItemEnter, onItemLeave, onScrollScrolla
           />
           <span className="truncate font-mono text-sm font-semibold text-dark dark:text-light">{repo}</span>
         </span>
-        <span className="shrink-0 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-medium text-sky-700 dark:text-sky-300">
+        <span className="shrink-0 rounded-full border border-transparent bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-medium text-sky-700 transition-colors hover:border-sky-500 hover:bg-accent/25 hover:text-sky-800 dark:text-sky-300 dark:hover:border-sky-300 dark:hover:bg-accent/20 dark:hover:text-sky-200">
           {repo === 'vscode-icons/vscode-icons' ? t.foss.roles.contributor : t.foss.roles.collaborator}
         </span>
       </a>

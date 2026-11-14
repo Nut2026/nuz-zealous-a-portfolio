@@ -141,7 +141,7 @@ export default function Navbar() {
               e.preventDefault()
               handleNavClick('#contact')
             }}
-            className="group relative overflow-hidden rounded-full bg-sky-50 px-5 py-2 text-sm font-semibold text-dark transition-colors duration-200 hover:bg-sky-100 hover:scale-105"
+            className="group relative overflow-hidden rounded-full bg-accent px-5 py-2 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-105"
           >
             <span className="relative z-10">{t.nav.contact}</span>
             <span className={ringBorder} />
@@ -231,7 +231,7 @@ export default function Navbar() {
                 e.preventDefault()
                 handleNavClick('#contact')
               }}
-              className="group relative overflow-hidden rounded-full bg-sky-50 px-4 py-1.5 text-sm font-semibold text-dark transition-colors duration-200 hover:bg-sky-100"
+              className="group relative overflow-hidden rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-dark"
             >
               <span className="relative z-10">{t.nav.contact}</span>
               <span
