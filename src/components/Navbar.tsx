@@ -79,6 +79,7 @@ export default function Navbar() {
   const langDropdown = (
     <div
       ref={langMenuRef}
+      onMouseDown={(e) => e.stopPropagation()}
       className="absolute right-0 top-full z-50 mt-2 w-48 rounded-xl border border-dark/10 bg-light p-1.5 shadow-lg shadow-dark/10 backdrop-blur-sm dark:border-light/10 dark:bg-dark dark:shadow-light/10"
     >
       {languages.map((option) => (
@@ -140,7 +141,7 @@ export default function Navbar() {
               e.preventDefault()
               handleNavClick('#contact')
             }}
-            className="group relative overflow-hidden rounded-full bg-accent px-5 py-2 text-sm font-semibold text-dark transition-transform duration-200 hover:scale-105"
+            className="group relative overflow-hidden rounded-full bg-sky-50 px-5 py-2 text-sm font-semibold text-dark transition-colors duration-200 hover:bg-sky-100 hover:scale-105"
           >
             <span className="relative z-10">{t.nav.contact}</span>
             <span className={ringBorder} />
@@ -230,7 +231,7 @@ export default function Navbar() {
                 e.preventDefault()
                 handleNavClick('#contact')
               }}
-              className="group relative overflow-hidden rounded-full bg-accent px-4 py-1.5 text-sm font-semibold text-dark"
+              className="group relative overflow-hidden rounded-full bg-sky-50 px-4 py-1.5 text-sm font-semibold text-dark transition-colors duration-200 hover:bg-sky-100"
             >
               <span className="relative z-10">{t.nav.contact}</span>
               <span

@@ -1,16 +1,14 @@
 import { useLanguage } from '../i18n/LanguageContext'
 import { cn } from '../lib/utils'
 
-// Category keys map into the translated category labels; the item names stay
-// as product names across every language.
 const techStack = {
   languages: ['Python', 'TypeScript'],
-  web: ['FastAPI', 'React', 'Astro', 'Tailwind'],
-  plugin: ['Anki', 'VS Code', 'Inkscape', 'Google Sheets'],
-  ai: ['Telethon', 'python-telegram-bot', 'discord.py'],
+  web: ['FastAPI', 'React', 'Vite', 'Astro', 'Tailwind'],
+  plugin: ['Anki', 'VS Code', 'Google Sheets'],
+  ai: ['Telethon', 'python-telegram-bot'],
   databases: ['PostgreSQL', 'SQLite', 'Supabase'],
   deployment: ['Vercel', 'Railway', 'Cloudflare'],
-  design: ['ibisPaint', 'Clipchamp'],
+  design: ['Inkscape', 'ibisPaint', 'Clipchamp'],
 } as const
 
 const hoverBlue = cn(
@@ -19,7 +17,7 @@ const hoverBlue = cn(
 
 function HoverWord({ children, em = false }: { children: React.ReactNode; em?: boolean }) {
   return em ? (
-    <em className={cn('not-italic font-semibold', hoverBlue)}>{children}</em>
+    <em className={cn('italic font-normal', hoverBlue)}>{children}</em>
   ) : (
     <span className={cn('font-semibold', hoverBlue)}>{children}</span>
   )

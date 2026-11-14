@@ -1,7 +1,7 @@
 // UI copy for all site languages. Shape must stay identical across every
 // entry; add new keys here first, then fill them for the other languages.
 // Segment arrays drive rich inline text: style 'hl' renders with the hover-blue
-// highlight, 'hl-em' is the non-italic emphasis variant of the same highlight.
+// highlight, while 'hl-em' renders as regular italic text with the same hover.
 
 export interface Segment {
   text: string
@@ -41,7 +41,10 @@ export interface UiStrings {
   foss: {
     title: string
     subtitle: string
-    merged: string
+    roles: {
+      contributor: string
+      collaborator: string
+    }
     noPrs: string
     unavailable: string
     opened: string
@@ -105,7 +108,7 @@ const en: UiStrings = {
     hiPrefix: "Hi, it's ",
     hiSuffix: '!',
     tagline: [
-      { text: "I'm an undergraduate student aspiring to be a " },
+      { text: "I'm a Pre-U student aspiring to be a " },
       { text: 'full-stack developer', style: 'hl' },
       { text: ' - one who turns a ' },
       { text: 'single-line pitch', style: 'hl' },
@@ -136,7 +139,7 @@ const en: UiStrings = {
   foss: {
     title: 'My FOSS Fire',
     subtitle: 'Meet the cool open source software I contribute to!',
-    merged: '{count} merged',
+    roles: { contributor: 'Contributor', collaborator: 'Collaborator' },
     noPrs: 'No merged pull requests yet.',
     unavailable: 'PR data is unavailable right now.',
     opened: 'Opened {date}',
@@ -171,7 +174,7 @@ const en: UiStrings = {
     categories: {
       languages: 'Languages',
       web: 'Web Development',
-      plugin: 'Plugin Development',
+      plugin: 'Plugins & Scripts',
       ai: 'AI & Automation',
       databases: 'Databases',
       deployment: 'Deployment',
@@ -184,12 +187,14 @@ const en: UiStrings = {
       { text: 'ability', style: 'hl' },
       { text: ' and ' },
       { text: 'passion', style: 'hl' },
-      { text: ' for building scalable programs from scratch led me into ' },
+      { text: ' for building scalable programs from scratch drove me into ' },
       { text: 'full-stack development', style: 'hl' },
       { text: '. Beyond the code, you can find me ' },
       { text: 'writing', style: 'hl-em' },
-      { text: ' or spending ' },
-      { text: 'quality time with family', style: 'hl-em' },
+      { text: ', enjoying ' },
+      { text: 'yoga', style: 'hl-em' },
+      { text: ', or ' },
+      { text: 'travelling with my family', style: 'hl-em' },
       { text: '. I believe great technology is built through ' },
       { text: 'empathy', style: 'hl' },
       { text: ' and ' },
@@ -256,7 +261,7 @@ const ms: UiStrings = {
   foss: {
     title: 'Api FOSS Saya',
     subtitle: 'Temui perisian sumber terbuka hebat yang saya sumbangkan!',
-    merged: '{count} digabung',
+    roles: { contributor: 'Penyumbang', collaborator: 'Rakan Kerjasama' },
     noPrs: 'Tiada permintaan tarik digabung lagi.',
     unavailable: 'Data PR tidak tersedia buat masa ini.',
     opened: 'Dibuka {date}',
@@ -291,7 +296,7 @@ const ms: UiStrings = {
     categories: {
       languages: 'Bahasa',
       web: 'Pembangunan Web',
-      plugin: 'Pembangunan Plugin',
+      plugin: 'Plugin & Skrip',
       ai: 'AI & Automasi',
       databases: 'Pangkalan Data',
       deployment: 'Deployment',
@@ -300,15 +305,18 @@ const ms: UiStrings = {
     bio: [
       { text: 'Saya pakar dalam mengubah idea menjadi ' },
       { text: 'perisian yang kemas', style: 'hl' },
-      { text: '. Kebolehan' },
+      { text: '. ' },
+      { text: 'Kebolehan', style: 'hl' },
       { text: ' dan ' },
       { text: 'semangat', style: 'hl' },
       { text: ' untuk membina atur cara berskala dari kosong membawa saya ke ' },
       { text: 'pembangunan full-stack', style: 'hl' },
       { text: '. Selain kod, anda boleh mendapati saya ' },
       { text: 'menulis', style: 'hl-em' },
-      { text: ' atau menghabiskan ' },
-      { text: 'masa berkualiti bersama keluarga', style: 'hl-em' },
+      { text: ', menikmati ' },
+      { text: 'yoga', style: 'hl-em' },
+      { text: ', atau ' },
+      { text: 'mengembara bersama keluarga', style: 'hl-em' },
       { text: '. Saya percaya teknologi hebat dibina melalui ' },
       { text: 'empati', style: 'hl' },
       { text: ' dan ' },
@@ -375,7 +383,7 @@ const zh: UiStrings = {
   foss: {
     title: '我的 FOSS 之火',
     subtitle: '来看看我参与贡献的那些很棒的开源软件!',
-    merged: '{count} 次合并',
+    roles: { contributor: '贡献者', collaborator: '协作者' },
     noPrs: '暂无已合并的 Pull Request。',
     unavailable: 'PR 数据暂时无法获取。',
     opened: '开启于 {date}',
@@ -410,7 +418,7 @@ const zh: UiStrings = {
     categories: {
       languages: '编程语言',
       web: '网页开发',
-      plugin: '插件开发',
+      plugin: '插件与脚本',
       ai: 'AI 与自动化',
       databases: '数据库',
       deployment: '部署',
@@ -427,8 +435,10 @@ const zh: UiStrings = {
       { text: '全栈开发', style: 'hl' },
       { text: '。敲代码之外,你还能看到我在' },
       { text: '写作', style: 'hl-em' },
-      { text: '或享受' },
-      { text: '与家人的美好时光', style: 'hl-em' },
+      { text: '、享受' },
+      { text: '瑜伽', style: 'hl-em' },
+      { text: '，或' },
+      { text: '与家人旅行', style: 'hl-em' },
       { text: '。我相信优秀的技术源于' },
       { text: '同理心', style: 'hl' },
       { text: '和' },

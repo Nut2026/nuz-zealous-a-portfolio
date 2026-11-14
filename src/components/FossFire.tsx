@@ -263,16 +263,9 @@ function RepoCard({ repo, prs, failed, onItemEnter, onItemLeave, onScrollScrolla
           />
           <span className="truncate font-mono text-sm font-semibold text-dark dark:text-light">{repo}</span>
         </span>
-        {repoPrs && (
-          <span
-            className="group/badge shrink-0 cursor-default rounded-full bg-emerald-600/10 px-2.5 py-0.5 font-mono text-[10px] font-medium text-emerald-700/80 transition-colors hover:bg-emerald-500/15 dark:bg-emerald-400/10 dark:text-emerald-300/80"
-            title={t.foss.merged.replace('{count}', String(repoPrs.length))}
-          >
-            {fmt(t.foss.merged, { count: repoPrs.length })}
-            {/* Pulsing light that appears on badge hover — shows the feed is live. */}
-            <span className="ml-1.5 inline-block h-1.5 w-1.5 rounded-full bg-emerald-500 opacity-0 shadow-[0_0_6px_rgba(16,185,129,0.9)] transition-opacity duration-200 group-hover/badge:animate-live-dot group-hover/badge:opacity-100 dark:bg-emerald-300" />
-          </span>
-        )}
+        <span className="shrink-0 rounded-full bg-accent/15 px-2.5 py-0.5 font-mono text-[10px] font-medium text-sky-700 dark:text-sky-300">
+          {repo === 'vscode-icons/vscode-icons' ? t.foss.roles.contributor : t.foss.roles.collaborator}
+        </span>
       </a>
 
       {/* Why I joined / the challenge / what I learned — mini-Markdown. */}

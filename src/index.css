@@ -107,23 +107,6 @@
       inset 0 0 12px rgba(255, 110, 60, 0.1);
   }
 
-  /* Small pulsing "live" light inside the merged badge. */
-  @keyframes live-dot {
-    0%,
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.35;
-      transform: scale(0.82);
-    }
-  }
-
-  .animate-live-dot {
-    animation: live-dot 1.4s ease-in-out infinite;
-  }
-
   /* Typing caret for the hero name animation. */
   @keyframes caret-blink {
     0%,
