@@ -9,6 +9,15 @@
     "comments": 2
   },
   {
+    "title": "update(updateManager): move Update Manager to Web UI",
+    "url": "https://github.com/h0tp-ftw/ankimon/pull/1055",
+    "number": 1055,
+    "repo": "h0tp-ftw/ankimon",
+    "created_at": "2026-11-04T01:27:06Z",
+    "merged_at": "2026-11-21T00:23:52Z",
+    "comments": 36
+  },
+  {
     "title": "fix(tests): isolate Anki mocks for current pytest",
     "url": "https://github.com/h0tp-ftw/ankimon/pull/1022",
     "number": 1022,
